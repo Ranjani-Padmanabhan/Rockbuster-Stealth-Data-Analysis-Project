@@ -6,3 +6,12 @@ Rockbuster Stealth LLC is a movie rental company that used to have stores around
 
 To help the business intelligence (BI) department with the launch strategy for the new online video service
 
+### Programming Language 
+
+- SQL
+- Excel
+
+### Database
+
+- PostgreSQL
+
