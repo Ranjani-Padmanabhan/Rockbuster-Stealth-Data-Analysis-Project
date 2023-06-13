@@ -10,7 +10,7 @@ INNER JOIN country D ON C.country_id = D.country_id
 GROUP BY country
 ORDER BY COUNT(customer_id) DESC
 LIMIT 10;
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### 2. Top 10 cities within the top 10 countries
 
@@ -25,8 +25,7 @@ WHERE country IN ('India','China','United States','Japan','Mexico','Brazil','Rus
 GROUP BY country, city
 ORDER BY COUNT(customer_id) DESC
 LIMIT 10
-
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### 3. Top 5 customers within the top 10 cities
 
 SELECT A.customer_id , 
@@ -44,7 +43,7 @@ WHERE city IN ('Aurora','Acua','Citrus Heights','Iwaki','Ambattur','Shanwei','So
 GROUP BY A.customer_id, first_name, last_name, country, city
 ORDER BY "total amount paid" DESC
 LIMIT 5;
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### 4. The average amount paid by the top 5 customers
 
@@ -65,7 +64,7 @@ WHERE city IN('Aurora','Acua','Citrus Heights','Iwaki','Ambattur','Shanwei','So 
 GROUP BY A.customer_id, first_name, last_name, country, city
 ORDER BY total_amount_paid DESC
 LIMIT 5) AS total_amount_paid;
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### 5. How many of the top 5 customers are based within each country 
 
@@ -95,7 +94,7 @@ LIMIT 5) AS top_5_customers ON A.customer_id = top_5_customers.customer_id
 GROUP BY D.Country
 HAVING COUNT (top_5_customers) >0
 ORDER BY COUNT(top_5_customers), COUNT(A.customer_id) DESC
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### 6. The average amount paid by the top 5 customers
 
@@ -117,6 +116,7 @@ ORDER BY total_amount_paid DESC
 LIMIT 5) 
 SELECT AVG(total_amount_paid) AS "Average"
 FROM top_5_avg
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### 7. How many of the top 5 customers are based within each country 
 WITH top_5_customers(customer_id, first_name, last_name, country, city, total_amount_paid) AS
@@ -146,5 +146,5 @@ LEFT JOIN top_5_customers ON A.customer_id = top_5_customers.customer_id
 GROUP BY D.country
 HAVING COUNT (top_5_customers) > 0
 ORDER BY COUNT(top_5_customers), COUNT(A.customer_id) DESC
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
