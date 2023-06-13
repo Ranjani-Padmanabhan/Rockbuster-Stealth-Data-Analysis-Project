@@ -1,4 +1,6 @@
-###-- 1. Top 10 countries
+```
+1. Top 10 countries
+```
 
 SELECT D.country,
 	   COUNT(customer_id) AS "number of customers"
